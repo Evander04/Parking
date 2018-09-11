@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-public class DataManagment {
+public class DataManagement {
 
     public static void Backup(){
         try{
