@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentActive=fragmentAdd;
                 return  true;
             case R.id.navigation_records:
+                ((FragmentRecords)fragmentRecords).refreshData();
                 manager.beginTransaction().hide(fragmentActive).show(fragmentRecords).commit();
                 fragmentActive=fragmentRecords;
                 return  true;

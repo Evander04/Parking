@@ -26,6 +26,9 @@ import nl.qbusict.cupboard.CupboardFactory;
 public class FragmentRecords extends Fragment {
     @BindView(R.id.recyclerRecords)
     RecyclerView mRecycler;
+
+    RecordRecyclerAdapter mAdapter;
+
     public FragmentRecords() {
     }
 
@@ -40,12 +43,21 @@ public class FragmentRecords extends Fragment {
         db = helper.getWritableDatabase();
 
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        records = CupboardFactory.cupboard().withDatabase(db).query(Record.class).withSelection("status=?",String.valueOf(0)).list();
-        Log.i("print<>",records.toString());
-        RecordRecyclerAdapter mAdapter=new RecordRecyclerAdapter(records);
+        mAdapter=new RecordRecyclerAdapter(records);
         mRecycler.setAdapter(mAdapter);
         mRecycler.setItemAnimator(new DefaultItemAnimator());
-
+        refreshData();
         return view;
     }
+    public void refreshData(){
+        records.clear();
+        mAdapter.notifyDataSetChanged();
+        List<Record> array = CupboardFactory.cupboard().withDatabase(db).query(Record.class).withSelection("status=?",String.valueOf(0)).list();
+        Log.i("print<>",array.toString());
+        for (Record r:array) {
+            records.add(r);
+        }
+        mAdapter.notifyDataSetChanged();
+    }
+
 }
