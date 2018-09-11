@@ -58,8 +58,8 @@ public class FragmentAdd  extends Fragment{
         if (validateRecord()){
             Record record= new Record();
             record.setDescription(description.getText().toString());
-            record.setLicensePlate(textLicensePlate.toString());
-            record.setCount(Integer.parseInt(textCount.toString()));
+            record.setLicensePlate(textLicensePlate.getText().toString());
+            record.setCount(Integer.parseInt(textCount.getText().toString()));
             record.setType(textType.getSelectedItemPosition());
             record.setDateEntry(new Date());
             record.setStatus(true);
