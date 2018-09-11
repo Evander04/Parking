@@ -13,6 +13,10 @@
     <string name="lblType">Tipo</string>
     <string name="lblButton">Guardar</string>
 
+    <!--Fragment records-->
+    <string name="lblTitle">Registro</string>
+
+
     <!--Cards-->
 
     <!--card record-->

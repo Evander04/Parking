@@ -10,7 +10,7 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class HelperDB extends SQLiteOpenHelper{
     public static final String DB="parking.db";
-    public static final int Version=1;
+    public static final int Version=2;
 
     public HelperDB(Context context) {
         super(context, DB, null, Version);

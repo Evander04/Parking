@@ -8,8 +8,8 @@ public class Record {
     private String licensePlate;
     private int type;// 1:moto, 2:carro, 3:camioneta, 4:camión
     private int count;
-    private boolean status;
-    private Date dateEntry;
+    private int status;
+    private Date dateEntry;//0:entrada, 1:salida
     private Date dateDeparture;
     private String user;
 
@@ -49,11 +49,11 @@ public class Record {
         this.type = type;
     }
 
-    public boolean isStatus() {
+    public int isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

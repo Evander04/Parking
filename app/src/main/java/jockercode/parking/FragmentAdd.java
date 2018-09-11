@@ -20,6 +20,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import jockercode.parking.Pojo.Record;
 import jockercode.parking.SQLite.HelperDB;
 import nl.qbusict.cupboard.CupboardFactory;
@@ -33,8 +34,6 @@ public class FragmentAdd  extends Fragment{
     EditText textCount;
     @BindView(R.id.textType)
     Spinner textType;
-    @BindView(R.id.btnAdd)
-    Button btnAdd;
 
     SQLiteDatabase db;
 
@@ -46,15 +45,10 @@ public class FragmentAdd  extends Fragment{
         ButterKnife.bind(this,view);
         HelperDB helper= new HelperDB(view.getContext());
         db=helper.getWritableDatabase();
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveRecord();
-            }
-        });
         return view;
     }
-    private void saveRecord(){
+    @OnClick(R.id.btnAdd)
+    public void saveRecord(){
         if (validateRecord()){
             Record record= new Record();
             record.setDescription(description.getText().toString());
@@ -62,10 +56,10 @@ public class FragmentAdd  extends Fragment{
             record.setCount(Integer.parseInt(textCount.getText().toString()));
             record.setType(textType.getSelectedItemPosition());
             record.setDateEntry(new Date());
-            record.setStatus(true);
+            record.setStatus(0);
             Long id= CupboardFactory.cupboard().withDatabase(db).put(record);
             record.set_id(id);
-            Log.i("function<>","save record=> "+record.toString());
+            Log.i("print<>","save record=> "+record.toString());
             clean();
             Toast.makeText(getContext(),"Guardado correctamente",Toast.LENGTH_LONG).show();
         }

@@ -6,14 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".Records.FragmentRecords">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/relativeCPDetail">
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#efeff4"
+            android:drawableStart="@android:drawable/ic_menu_agenda"
+            android:text="@string/lblTitle"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerRecords"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Records"
-            android:textSize="36dp"/>
-    </android.support.constraint.ConstraintLayout>
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
 
 </FrameLayout>
