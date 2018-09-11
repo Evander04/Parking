@@ -4,10 +4,22 @@
     <string name="title_records">Registros</string>
     <string name="title_resume">Resumen</string>
 
+    <!--Fragments-->
+
     <!--Fragment add-->
     <string name="lblDescription">Descripción</string>
     <string name="lblLicensePlate">Placa</string>
     <string name="lblCount">Cantidad</string>
     <string name="lblType">Tipo</string>
     <string name="lblButton">Guardar</string>
+
+    <!--Cards-->
+
+    <!--card record-->
+    <string name="cardDescription">Descripción: </string>
+    <string name="cardLicensePlate">Placa: </string>
+    <string name="cardCount">Cantidad: </string>
+    <string name="cardType">Tipo: </string>
+    <string name="cardDate">Entrada: </string>
+    <string name="cardButton">Salida</string>
 </resources>
