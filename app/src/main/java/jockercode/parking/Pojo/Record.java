@@ -4,9 +4,10 @@ import java.util.Date;
 
 public class Record {
     private Long _id;
-    private String name;
+    private String description;
     private String licensePlate;
-    private int type;// 0:moto, 1:carro, 3:camioneta, 4:camión
+    private int type;// 1:moto, 2:carro, 3:camioneta, 4:camión
+    private int count;
     private boolean status;
     private Date dateEntry;
     private Date dateDeparture;
@@ -15,26 +16,6 @@ public class Record {
     public Record() {
     }
 
-    public Record(Long _id, String name, String licensePlate, int type, boolean status, Date dateEntry, Date dateDeparture, String user) {
-        this._id = _id;
-        this.name = name;
-        this.licensePlate = licensePlate;
-        this.type = type;
-        this.status = status;
-        this.dateEntry = dateEntry;
-        this.dateDeparture = dateDeparture;
-        this.user = user;
-    }
-
-    public Record(String name, String licensePlate, int type, boolean status, Date dateEntry, Date dateDeparture, String user) {
-        this.name = name;
-        this.licensePlate = licensePlate;
-        this.type = type;
-        this.status = status;
-        this.dateEntry = dateEntry;
-        this.dateDeparture = dateDeparture;
-        this.user = user;
-    }
 
     public Long get_id() {
         return _id;
@@ -44,12 +25,12 @@ public class Record {
         this._id = _id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getLicensePlate() {
@@ -100,13 +81,22 @@ public class Record {
         this.user = user;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     @Override
     public String toString() {
         return "Record{" +
                 "_id=" + _id +
-                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", licensePlate='" + licensePlate + '\'' +
                 ", type=" + type +
+                ", count=" + count +
                 ", status=" + status +
                 ", dateEntry=" + dateEntry +
                 ", dateDeparture=" + dateDeparture +
