@@ -29,13 +29,13 @@ public class RecordRecyclerAdapter extends RecyclerView.Adapter<RecordRecyclerAd
     @Override
     public RecordRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_record, viewGroup, false);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecordRecyclerAdapter.ViewHolder viewHolder, int i) {
         Record r=records.get(i);
+        viewHolder.pos=i;
         viewHolder.description.setText(r.getDescription());
         viewHolder.licensePlate.setText(r.getLicensePlate());
         viewHolder.date.setText(r.getDateEntry().toString());
@@ -48,6 +48,7 @@ public class RecordRecyclerAdapter extends RecyclerView.Adapter<RecordRecyclerAd
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
+        private int pos;
         @BindView(R.id.cardDesc)
         TextView description;
         @BindView(R.id.cardLicense)
