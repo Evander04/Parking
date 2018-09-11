@@ -22,7 +22,6 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginLeft="16dp"
-            android:background="@drawable/ic_directions_car_black_24dp"
             android:scaleType="centerCrop"
             tools:ignore="ContentDescription"/>
         <LinearLayout

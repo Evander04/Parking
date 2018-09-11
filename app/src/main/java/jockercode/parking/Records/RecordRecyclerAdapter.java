@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -39,12 +40,17 @@ public class RecordRecyclerAdapter extends RecyclerView.Adapter<RecordRecyclerAd
         viewHolder.description.setText(r.getDescription());
         viewHolder.licensePlate.setText(r.getLicensePlate());
         viewHolder.date.setText(r.getDateEntry().toString());
+        viewHolder.image.setImageResource(r.getType()==1?R.drawable.ic_directions_bike_black_24dp
+                :r.getType()==2?R.drawable.ic_directions_car_black_24dp:
+                r.getType()==3?R.drawable.ic_airport_shuttle_black_24dp:
+                R.drawable.ic_local_shipping_black_24dp);
     }
 
     @Override
     public int getItemCount() {
         return records.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
@@ -55,6 +61,8 @@ public class RecordRecyclerAdapter extends RecyclerView.Adapter<RecordRecyclerAd
         TextView licensePlate;
         @BindView(R.id.cardDate)
         TextView date;
+        @BindView(R.id.cardImage)
+        ImageView image;
         public ViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
